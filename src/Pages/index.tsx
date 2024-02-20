@@ -1,12 +1,14 @@
 import React from 'react';
-import ContactForm from '../Components/ReduxForm/ReduxForm.tsx';
+import ReduxForm from '../Components/ReduxForm/ReduxForm.tsx';
 
 const ContactPage: React.FC = () => {
-  const submit = (values: any) => {
-    console.log(values);
+  const submit = () => {
+    console.log("test")
   };
 
-  return <ContactForm onSubmit={submit} />;
+  return <>
+     <ReduxForm onSubmit={submit} />
+  </>;
 };
 
 export default ContactPage;

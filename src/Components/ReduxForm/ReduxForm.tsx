@@ -1,29 +1,39 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { getFormValues } from 'redux-form';
+import MaterialUiForm from '../Steps/Personal.tsx';
+import EducationForm from '../Steps/Education.tsx';
+import ExperienceForm from '../Steps/Experience.tsx';
 
-let ContactForm = (props) => {
-  const { handleSubmit } = props
+const ReduxForm = ({ formValues }) => {
+  const [step, setStep] = useState(1);
+
+  const nextStep = () => setStep(step + 1);
+
+  const handlePersonalSubmit = () => {
+    nextStep();
+  };
+
+  const handleEducationSubmit = () => {
+    nextStep();
+  };
+
+  const handleExperienceSubmit = () => {
+    nextStep();
+    console.log('Combined Form Values:', formValues);
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="firstName">First Name</label>
-        <Field name="firstName" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="lastName">Last Name</label>
-        <Field name="lastName" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <Field name="email" component="input" type="email" />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  )
-}
+    <>
+      {step === 1 && <MaterialUiForm onSubmit={handlePersonalSubmit} />}
+      {step === 2 && <EducationForm onSubmit={handleEducationSubmit} />}
+      {step === 3 && <ExperienceForm onSubmit={handleExperienceSubmit} />}
+    </>
+  );
+};
 
-ContactForm = reduxForm({
-  form: 'multiStepForm'
-})(ContactForm)
+const mapStateToProps = (state) => ({
+  formValues: getFormValues('customForm')(state),
+});
 
-export default ContactForm;
+export default connect(mapStateToProps)(ReduxForm);
