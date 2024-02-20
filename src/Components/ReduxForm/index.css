@@ -1,0 +1,66 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  }
+
+.form-container {
+    width: 350px; 
+    padding: 20px;
+    border: 1px solid  #141519;
+    border-radius: 5px;
+}
+button {
+    margin-top: 5% !important;
+    background: #141519 !important;
+}
+
+.form-progress {
+    margin-bottom: 4%;
+}
+
+.MuiLinearProgress-root{
+    height: 10px !important;
+    border-radius: 10px;
+}
+
+.MuiLinearProgress-bar{
+    background-color: #e1e7ff!important;
+}
+
+.Mui-disabled{
+    background: #fff !important;
+    color: #ccc !important;
+}
+
+.MuiIconButton-colorPrimary{
+    padding: unset !important;
+    background-color: unset !important;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 70px;
+    padding: 16px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    resize: vertical;
+    outline: none;
+  }
+  
+  .textarea:focus {
+    border-color: #1976d2;
+  }
+  
+
+  label[for="file-upload"] {
+    justify-content: flex-end;
+    width: 100%;
+  }
+  

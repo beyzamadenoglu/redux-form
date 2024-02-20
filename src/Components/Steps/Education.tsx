@@ -5,8 +5,10 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from "@material-ui/core/Button";
+import Typography from '@material-ui/core/Typography';
 
-import { validateEducation } from '../../utils/validate.tsx'; 
+
+import { validateEducation } from '../../utils/validate.tsx';
 
 export interface EducationFormData {
   schoolName: string;
@@ -55,7 +57,10 @@ const EducationForm: React.FC<InjectedFormProps<EducationFormData>> = ({
   handleSubmit
 }) => {
   return (
-      <form onSubmit={handleSubmit}>
+    <form className="form-container" onSubmit={handleSubmit}>
+      <Typography variant="h6" gutterBottom>
+        Enter your college details
+      </Typography>
       <div>
         <Field
           name="schoolName"
@@ -88,11 +93,7 @@ const EducationForm: React.FC<InjectedFormProps<EducationFormData>> = ({
         </Field>
       </div>
       <div>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-        >
+        <Button disabled={pristine || submitting} type="submit" variant="contained" color="primary">
           Next
         </Button>
       </div>
@@ -102,5 +103,6 @@ const EducationForm: React.FC<InjectedFormProps<EducationFormData>> = ({
 
 export default reduxForm<EducationFormData>({
   form: 'customForm',
-  validateEducation
+  destroyOnUnmount: false,
+  validate: validateEducation
 })(EducationForm);
