@@ -38,19 +38,6 @@ const renderRadioGroup = ({
   <RadioGroup {...input} {...rest} />
 );
 
-const renderRadio = ({
-  input,
-  label,
-  ...rest
-}: any) => (
-  <FormControlLabel
-    control={<Radio />}
-    label={label}
-    {...input}
-    {...rest}
-  />
-);
-
 const EducationForm: React.FC<InjectedFormProps<EducationFormData>> = ({
   pristine,
   submitting,

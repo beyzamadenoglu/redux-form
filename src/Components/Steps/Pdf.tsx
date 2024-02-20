@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Button, Container, Typography, TextareaAutosize } from '@material-ui/core';
+import { Button, Container, Typography } from '@material-ui/core';
 import FileField from '../Common/FileField.tsx';
 
 import { validatePDFForm } from '../../utils/validate.tsx';

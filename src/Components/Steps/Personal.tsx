@@ -37,10 +37,6 @@ const renderRadioGroup = ({ input, ...rest }: any) => (
   <RadioGroup {...input} {...rest} />
 );
 
-const renderRadio = ({ input, label, ...rest }: any) => (
-  <FormControlLabel control={<Radio />} label={label} {...input} {...rest} />
-);
-
 const PersonalForm: React.FC<InjectedFormProps<FormData>> = ({
   handleSubmit,
   pristine,
