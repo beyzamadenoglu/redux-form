@@ -3,6 +3,7 @@ export interface PersonalErrors {
   lastName?: string;
   age?: string;
   gender?: string;
+  email: string
 }
 
 export interface EducationErrors {
@@ -23,27 +24,44 @@ export interface PDFUploadErrors {
 
 export const validatePersonal = (values: Record<string, any>): PersonalErrors => {
   const errors: PersonalErrors = {};
+
   if (!values.firstName) {
     errors.firstName = 'Please enter your name.';
   }
   if (!values.lastName) {
     errors.lastName = 'Please enter your last name.';
   }
+
+  // Validation for Age
   if (!values.age) {
     errors.age = 'Required';
   } else if (isNaN(Number(values.age))) {
     errors.age = 'Age should be a number.';
   } else if (Number(values.age) < 0) {
     errors.age = 'Age must be a positive number';
-  }
-  else if (Number(values.age) < 18) {
+  } else if (Number(values.age) < 18) {
     errors.age = 'You should be older than 18.';
   }
+
   if (!values.gender) {
     errors.gender = 'Please select your gender.';
   }
+
+  if (!values.email) {
+    errors.email = 'Please enter email adress.';
+  }
+  if (values.email && !isValidEmail(values.email)) {
+    errors.email = 'Please enter a valid email address.';
+  }
+
   return errors;
 };
+
+const isValidEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 
 export const validateEducation = (values: Record<string, any>): EducationErrors => {
   const errors: EducationErrors = {};

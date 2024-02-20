@@ -4,6 +4,7 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 interface Data {
     firstName: string;
     lastName: string;
+    email:string;
     age: string;
     gender: string;
     schoolName: string;
@@ -27,6 +28,7 @@ const MyTable: React.FC<Props> = ({ data }) => {
                     <TableRow>
                         <TableCell>First Name</TableCell>
                         <TableCell>Last Name</TableCell>
+                        <TableCell>Email</TableCell>
                         <TableCell>Age</TableCell>
                         <TableCell>Gender</TableCell>
                         <TableCell>School Name</TableCell>
@@ -42,6 +44,7 @@ const MyTable: React.FC<Props> = ({ data }) => {
                     <TableRow>
                         <TableCell>{data.firstName || "No Data"}</TableCell>
                         <TableCell>{data.lastName || "No Data"}</TableCell>
+                        <TableCell>{data.email || "No Data"}</TableCell>
                         <TableCell>{data.age || "No Data"}</TableCell>
                         <TableCell>{data.gender || "No Data"}</TableCell>
                         <TableCell>{data.schoolName || "No Data"}</TableCell>

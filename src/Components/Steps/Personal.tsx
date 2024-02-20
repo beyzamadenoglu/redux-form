@@ -13,6 +13,7 @@ import { validatePersonal } from "../../utils/validate.tsx";
 export interface FormData {
   firstName: string;
   lastName: string;
+  email: string;
   age: string;
   gender: string;
 }
@@ -62,6 +63,13 @@ const PersonalForm: React.FC<InjectedFormProps<FormData>> = ({
           name="lastName"
           component={renderTextField}
           label="Last Name"
+        />
+      </div>
+      <div>
+        <Field
+          name="email"
+          component={renderTextField}
+          label="Email"
         />
       </div>
       <div>
